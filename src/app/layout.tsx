@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import SideBar from "@/components/common/SideBar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -11,9 +12,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const sideBarWidth = 240;
+
   return (
     <html lang="en">
-      <body>{children}</body>
+      <SideBar sideBarWidth={sideBarWidth} />
+      <body style={{ marginLeft: `${sideBarWidth}px` }}>{children}</body>
     </html>
   );
 }
